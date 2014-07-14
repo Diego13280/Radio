@@ -42,7 +42,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="108" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Component id="EstacionUno" alignment="1" min="-2" pref="41" max="-2" attributes="0"/>
                                   <Component id="EstacionSiete" alignment="1" min="-2" pref="41" max="-2" attributes="0"/>
@@ -73,11 +73,11 @@
                                   </Group>
                               </Group>
                           </Group>
-                          <Group type="102" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="Bajar" min="-2" pref="40" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                               <Component id="CambiarFrecuencia" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                               <Component id="Subir" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -110,7 +110,7 @@
                   <Component id="CambiarFrecuencia" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="Subir" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="EstacionUno" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="EstacionDos" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -130,7 +130,7 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="GuardarEstacion" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="31" max="32767" attributes="0"/>
+              <EmptySpace pref="20" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -164,11 +164,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="2"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EstacionDosActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="EstacionCuatro">
       <Properties>
         <Property name="text" type="java.lang.String" value="4"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EstacionCuatroActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="EstacionTres">
       <Properties>
@@ -182,11 +188,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="8"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EstacionOchoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="EstacionSeis">
       <Properties>
         <Property name="text" type="java.lang.String" value="6"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EstacionSeisActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="EstacionCinco">
       <Properties>
@@ -208,11 +220,17 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="12"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EstacionDoceActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="EstacionDiez">
       <Properties>
         <Property name="text" type="java.lang.String" value="10"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EstacionDiezActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="EstacionNueve">
       <Properties>
@@ -253,7 +271,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="97.5"/>
+        <Property name="text" type="java.lang.String" value="89.7"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="CambiarFrecuencia">

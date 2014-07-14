@@ -2,12 +2,12 @@
 package radio;
 public class Radio {
     
-    private int frecu;
     private double estacionFM[];
     private double estacionAM[];
+    private double fm = 89.7, am = 530;
+    private boolean encendido = false, frecuencia = true;
 
     Radio(){
-        frecu=0;
         estacionAM= new double[12];
         estacionFM= new double[12];
         
@@ -16,46 +16,41 @@ public class Radio {
             estacionFM[i] = 0.0;            
         }
     }
-        public double subirEstacion(int frec,double Actual) //Subir de estacion
-    {
-            frecu = frec;
-            if (frecu == 0){
-                Actual = Actual + 0.2;
-                if (Actual >107.9)
-                    Actual = 87.9;
-           
-            }
-            if (frecu == 1){
-                Actual = Actual + 10;
-                if (Actual > 1610){
-                    Actual = 530;
+    //Subir de estacion
+        public double subirEstacion() {
+            if (frecuencia){
+                fm = fm + 0.2;
+                if (fm >107.9) {
+                    fm = 89.7;  
                 }
-            
-            }
-         return Actual;
+                return fm;
+            } else {
+                am = am + 10;
+                if (am > 1610){
+                    am = 530;
+                }
+                return am;            
+            }   
     }
     
-        public double bajarEstacion(int frec,double Actual) //Subir de estacion
-    {
-             frecu = frec;
-            if (frecu == 0){
-                Actual = Actual - 0.2;
-                if (Actual < 87.9)
-                    Actual = 107.9;
-           
-            }
-            if (frecu == 1){
-                Actual = Actual - 10;
-                if (Actual < 530){
-                    Actual = 1610;
+        public double bajarEstacion() {
+            if (frecuencia){
+                fm = fm - 0.2;
+                if (fm < 89.7) {
+                    fm = 107.9;  
                 }
-            
-            }
-         return Actual;
-   }
+                return fm;
+            } else {
+                am = am - 10;
+                if (am < 530){
+                    am = 1610;
+                }
+                return am;            
+            }   
+    }
         
         public void Guardar(int pos, double x){
-            if(frecu==0){
+            if(frecuencia){
                 estacionFM[pos] = x; 
             } else {
                 estacionAM[pos] = x;
@@ -64,12 +59,35 @@ public class Radio {
         
         double sacar(int pos){
             double estacionActual;
-            if (frecu == 0) {
+            if (frecuencia) {
                 estacionActual = estacionFM[pos];
             } else {
                 estacionActual = estacionAM[pos];
             }
             return estacionActual;
+        }
+        
+        public void cambiarFrecuencia(boolean frec){
+             if (frec) {
+                 frecuencia = false;
+             } else {
+                 frecuencia = true;
+             }
+        }
+        
+        public boolean getEncendido() {
+            return encendido;
+        }   
+        public double getEstacionAM() {
+            return estacionAM[2];
+        }
+        public double getEstacionFM() {
+            return estacionFM[2];
+            
+        }
+        public boolean getFrecuencia(){
+            return frecuencia;
+             
         }
         
        

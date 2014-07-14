@@ -6,8 +6,9 @@ public class Grafico extends javax.swing.JFrame {
 
     private double  a;
     private double b;
-    private int c, posFM, posAM;
+    private int posFM, posAM;
     Radio miRadio = new Radio();
+    private boolean frecue;
     
     public Grafico() {
         initComponents();        
@@ -28,9 +29,8 @@ public class Grafico extends javax.swing.JFrame {
         Subir.setEnabled(false);
         Bajar.setEnabled(false);
         GuardarEstacion.setEnabled(false);
-        a = 87.9; 
+        a = 89.7; 
         b = 530;
-        c=0;
         posAM = 0;
         posFM = 0;
         
@@ -88,8 +88,18 @@ public class Grafico extends javax.swing.JFrame {
         });
 
         EstacionDos.setText("2");
+        EstacionDos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EstacionDosActionPerformed(evt);
+            }
+        });
 
         EstacionCuatro.setText("4");
+        EstacionCuatro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EstacionCuatroActionPerformed(evt);
+            }
+        });
 
         EstacionTres.setText("3");
         EstacionTres.addActionListener(new java.awt.event.ActionListener() {
@@ -99,8 +109,18 @@ public class Grafico extends javax.swing.JFrame {
         });
 
         EstacionOcho.setText("8");
+        EstacionOcho.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EstacionOchoActionPerformed(evt);
+            }
+        });
 
         EstacionSeis.setText("6");
+        EstacionSeis.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EstacionSeisActionPerformed(evt);
+            }
+        });
 
         EstacionCinco.setText("5");
         EstacionCinco.addActionListener(new java.awt.event.ActionListener() {
@@ -117,8 +137,18 @@ public class Grafico extends javax.swing.JFrame {
         });
 
         EstacionDoce.setText("12");
+        EstacionDoce.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EstacionDoceActionPerformed(evt);
+            }
+        });
 
         EstacionDiez.setText("10");
+        EstacionDiez.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EstacionDiezActionPerformed(evt);
+            }
+        });
 
         EstacionNueve.setText("9");
         EstacionNueve.addActionListener(new java.awt.event.ActionListener() {
@@ -150,7 +180,7 @@ public class Grafico extends javax.swing.JFrame {
 
         jLabel1.setText("Fm: ");
 
-        jLabel2.setText("97.5");
+        jLabel2.setText("89.7");
 
         CambiarFrecuencia.setText("Cambiar Frecuencia");
         CambiarFrecuencia.addActionListener(new java.awt.event.ActionListener() {
@@ -217,7 +247,7 @@ public class Grafico extends javax.swing.JFrame {
                                 .addComponent(Bajar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(51, 51, 51)
                                 .addComponent(CambiarFrecuencia)
-                                .addGap(34, 34, 34)
+                                .addGap(40, 40, 40)
                                 .addComponent(Subir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(151, 151, 151))))
             .addGroup(layout.createSequentialGroup()
@@ -240,7 +270,7 @@ public class Grafico extends javax.swing.JFrame {
                     .addComponent(Bajar)
                     .addComponent(CambiarFrecuencia)
                     .addComponent(Subir))
-                .addGap(18, 18, 18)
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(EstacionUno)
                     .addComponent(EstacionDos)
@@ -258,7 +288,7 @@ public class Grafico extends javax.swing.JFrame {
                     .addComponent(EstacionDoce))
                 .addGap(18, 18, 18)
                 .addComponent(GuardarEstacion)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -314,43 +344,79 @@ public class Grafico extends javax.swing.JFrame {
     }//GEN-LAST:event_ApagarActionPerformed
 
     private void EstacionUnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstacionUnoActionPerformed
-        if (c == 0) {
-            a = miRadio.sacar(posFM);
+        frecue = miRadio.getFrecuencia();
+        if (frecue) {
+            a = miRadio.sacar(0);
             jLabel2.setText(""+a) ;            
         } else {
-           b = miRadio.sacar(posAM);
+           b = miRadio.sacar(0);
            jLabel2.setText(""+b) ; 
         }    
     }//GEN-LAST:event_EstacionUnoActionPerformed
 
     private void EstacionTresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstacionTresActionPerformed
-        // TODO add your handling code here:
+        frecue = miRadio.getFrecuencia();
+        if (frecue) {
+            a = miRadio.sacar(2);
+            jLabel2.setText(""+a) ;            
+        } else {
+           b = miRadio.sacar(2);
+           jLabel2.setText(""+b) ; 
+        }         
     }//GEN-LAST:event_EstacionTresActionPerformed
 
     private void EstacionCincoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstacionCincoActionPerformed
-        // TODO add your handling code here:
+        frecue = miRadio.getFrecuencia();
+        if (frecue) {
+            a = miRadio.sacar(4);
+            jLabel2.setText(""+a) ;            
+        } else {
+           b = miRadio.sacar(4);
+           jLabel2.setText(""+b) ; 
+        }
     }//GEN-LAST:event_EstacionCincoActionPerformed
 
     private void EstacionSieteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstacionSieteActionPerformed
-        // TODO add your handling code here:
+        frecue = miRadio.getFrecuencia();
+        if (frecue) {
+            a = miRadio.sacar(6);
+            jLabel2.setText(""+a) ;            
+        } else {
+           b = miRadio.sacar(6);
+           jLabel2.setText(""+b) ; 
+        }
     }//GEN-LAST:event_EstacionSieteActionPerformed
 
     private void EstacionNueveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstacionNueveActionPerformed
-        // TODO add your handling code here:
+        frecue = miRadio.getFrecuencia();
+        if (frecue) {
+            a = miRadio.sacar(8);
+            jLabel2.setText(""+a) ;            
+        } else {
+           b = miRadio.sacar(8);
+           jLabel2.setText(""+b) ; 
+        }
     }//GEN-LAST:event_EstacionNueveActionPerformed
 
     private void EstacionOnceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstacionOnceActionPerformed
-        // TODO add your handling code here:
+        frecue = miRadio.getFrecuencia();
+        if (frecue) {
+            a = miRadio.sacar(10);
+            jLabel2.setText(""+a) ;            
+        } else {
+           b = miRadio.sacar(10);
+           jLabel2.setText(""+b) ; 
+        }
     }//GEN-LAST:event_EstacionOnceActionPerformed
 
     private void SubirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubirActionPerformed
-       
-       if (c == 0){
-            a= miRadio.subirEstacion(c,a);
+       frecue = miRadio.getFrecuencia();
+        if (frecue) {
+            a= miRadio.subirEstacion();
             jLabel2.setText(""+a) ;        
         }
         else {
-            b= miRadio.subirEstacion(c,b);
+            b= miRadio.subirEstacion();
             jLabel2.setText(""+b) ;
        }
        
@@ -358,35 +424,37 @@ public class Grafico extends javax.swing.JFrame {
     }//GEN-LAST:event_SubirActionPerformed
 
     private void BajarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BajarActionPerformed
-      if (c == 0){
-            a= miRadio.bajarEstacion(c,a);
+        frecue = miRadio.getFrecuencia();
+        if (frecue) {
+            a= miRadio.bajarEstacion();
             jLabel2.setText(""+a) ;        
         }
         else {
-            b= miRadio.bajarEstacion(c,b);
+            b= miRadio.bajarEstacion();
             jLabel2.setText(""+b) ;
        }
         
     }//GEN-LAST:event_BajarActionPerformed
 
     private void CambiarFrecuenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CambiarFrecuenciaActionPerformed
-        if (c == 0){
+        frecue = miRadio.getFrecuencia();
+        miRadio.cambiarFrecuencia(frecue);
+        if (frecue){
             jLabel1.setText("AM");
             jLabel2.setText(""+b) ;
-            c=1;
         }
         else {
             jLabel1.setText("FM");
             jLabel2.setText(""+a) ;
-            c=0;
         }
-       //c=0;
+       
         
     }//GEN-LAST:event_CambiarFrecuenciaActionPerformed
 
     private void GuardarEstacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarEstacionActionPerformed
         
-        if (c==0) {
+        frecue = miRadio.getFrecuencia();
+        if (frecue) {
             miRadio.Guardar(posFM, a);   
             posFM++;
         } else {
@@ -403,6 +471,72 @@ public class Grafico extends javax.swing.JFrame {
         
         JOptionPane.showMessageDialog(null, "Su estacion se Ha guardado", "Radio", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_GuardarEstacionActionPerformed
+
+    private void EstacionDosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstacionDosActionPerformed
+        frecue = miRadio.getFrecuencia();
+        if (frecue) {
+            a = miRadio.sacar(1);
+            jLabel2.setText(""+a) ;            
+        } else {
+           b = miRadio.sacar(1);
+           jLabel2.setText(""+b) ; 
+        }          
+    }//GEN-LAST:event_EstacionDosActionPerformed
+
+    private void EstacionCuatroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstacionCuatroActionPerformed
+        frecue = miRadio.getFrecuencia();
+        if (frecue) {
+            a = miRadio.sacar(3);
+            jLabel2.setText(""+a) ;            
+        } else {
+           b = miRadio.sacar(3);
+           jLabel2.setText(""+b) ; 
+        }
+    }//GEN-LAST:event_EstacionCuatroActionPerformed
+
+    private void EstacionSeisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstacionSeisActionPerformed
+        frecue = miRadio.getFrecuencia();
+        if (frecue) {
+            a = miRadio.sacar(5);
+            jLabel2.setText(""+a) ;            
+        } else {
+           b = miRadio.sacar(5);
+           jLabel2.setText(""+b) ; 
+        }
+    }//GEN-LAST:event_EstacionSeisActionPerformed
+
+    private void EstacionOchoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstacionOchoActionPerformed
+        frecue = miRadio.getFrecuencia();
+        if (frecue) {
+            a = miRadio.sacar(7);
+            jLabel2.setText(""+a) ;            
+        } else {
+           b = miRadio.sacar(7);
+           jLabel2.setText(""+b) ; 
+        }
+    }//GEN-LAST:event_EstacionOchoActionPerformed
+
+    private void EstacionDiezActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstacionDiezActionPerformed
+        frecue = miRadio.getFrecuencia();
+        if (frecue) {
+            a = miRadio.sacar(9);
+            jLabel2.setText(""+a) ;            
+        } else {
+           b = miRadio.sacar(9);
+           jLabel2.setText(""+b) ; 
+        }
+    }//GEN-LAST:event_EstacionDiezActionPerformed
+
+    private void EstacionDoceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstacionDoceActionPerformed
+        frecue = miRadio.getFrecuencia();
+        if (frecue) {
+            a = miRadio.sacar(11);
+            jLabel2.setText(""+a) ;            
+        } else {
+           b = miRadio.sacar(11);
+           jLabel2.setText(""+b) ; 
+        }
+    }//GEN-LAST:event_EstacionDoceActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
